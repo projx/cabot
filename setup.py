@@ -3,11 +3,24 @@ import os
 from setuptools import setup, find_packages
 from os import environ as env
 import subprocess
+from pip._internal.req import parse_requirements
 
-from pip.req import parse_requirements
+import uuid, sys, pprint
 
-requirements = [str(req.req) for req in parse_requirements('requirements.txt', session=False)]
-requirements_plugins = [str(req.req) for req in parse_requirements('requirements-plugins.txt', session=False)]
+# requirements = [str(req.req) for req in parse_requirements('requirements.txt', session=False)]
+# requirements_plugins = [str(req.req) for req in parse_requirements('requirements-plugins.txt', session=False)]
+
+def get_requirements(filename):
+    try:
+        reqs = list(parse_requirements(filename))
+    except TypeError:
+        reqs = list(parse_requirements(filename, session=uuid.uuid1()))
+
+    return [str(r.requirement) for r in reqs]
+
+requirements = get_requirements('requirements.txt')
+requirements_plugins = get_requirements('requirements-plugins.txt')
+
 
 try:
     VERSION = subprocess.check_output(['git', 'describe', '--tags']).strip()

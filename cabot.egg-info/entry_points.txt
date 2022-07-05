@@ -1,0 +1,3 @@
+[console_scripts]
+cabot = cabot.entrypoint:main
+
