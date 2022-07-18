@@ -31,7 +31,7 @@ from mock import Mock, patch
 from rest_framework import status, HTTP_HEADER_ENCODING
 from rest_framework.reverse import reverse as api_reverse
 from rest_framework.test import APITestCase
-from twilio import rest
+#from twilio import rest
 
 # Silence noisy celery logs in tests.
 import logging
@@ -50,7 +50,7 @@ class LocalTestCase(APITestCase):
     def setUp(self):
         requests.get = Mock()
         requests.post = Mock()
-        rest.TwilioRestClient = Mock()
+        #rest.TwilioRestClient = Mock()
         mail.send_mail = Mock()
         self.create_dummy_data()
         super(LocalTestCase, self).setUp()

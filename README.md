@@ -1,6 +1,8 @@
-Cabot
-=====
-[![Build Status](https://travis-ci.org/arachnys/cabot.svg?branch=master)](https://travis-ci.org/arachnys/cabot) 
+NOTE: This a fork of CABOT that is being updated to work with Python 3.10+ and Django 4... At this point in time, the code is not even Alpha ready, so please do not download it!
+<br>
+# Cabot
+
+[![Build Status](https://travis-ci.org/arachnys/cabot.svg?branch=master)](https://travis-ci.org/arachnys/cabot)
 [![PyPI version](https://badge.fury.io/py/cabot.svg)](https://badge.fury.io/py/cabot)
 [![Coverage Status](https://codecov.io/github/arachnys/cabot/coverage.svg?branch=master)](https://codecov.io/github/arachnys/cabot?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -18,9 +20,9 @@ It provides a web interface that allows you to monitor services (e.g. "Stage Red
 
 You can alert based on:
 
-*   Metrics from [Graphite](https://github.com/graphite-project/graphite-web)
-*   Status code and response content of web endpoints
-*   [Jenkins](http://jenkins-ci.org) build statuses
+* Metrics from [Graphite](https://github.com/graphite-project/graphite-web)
+* Status code and response content of web endpoints
+* [Jenkins](http://jenkins-ci.org) build statuses
 
 We built Cabot as a Christmas project at [Arachnys](https://www.arachnys.com) because we couldn't wrap our heads around Nagios, and nothing else out there seemed to fit our use case. We're open-sourcing it in the hope that others find it useful.
 
@@ -46,20 +48,20 @@ Docs have moved to [cabotapp.com](http://cabotapp.com)
 
 Sections:
 
-*   [Configuration](http://cabotapp.com/use/configuration.html)
-*   [Deployment](http://cabotapp.com/use/deployment.html)
-*   [Services](http://cabotapp.com/use/services.html)
-*   [Graphite checks](http://cabotapp.com/use/graphite-checks.html)
-*   [Jenkins checks](http://cabotapp.com/use/jenkins-checks.html)
-*   [HTTP checks](http://cabotapp.com/use/http-checks.html)
-*   [Alerting](http://cabotapp.com/use/alerting.html)
-*   [Users](http://cabotapp.com/use/users.html)
-*   [Rota](http://cabotapp.com/use/rota.html)
+* [Configuration](http://cabotapp.com/use/configuration.html)
+* [Deployment](http://cabotapp.com/use/deployment.html)
+* [Services](http://cabotapp.com/use/services.html)
+* [Graphite checks](http://cabotapp.com/use/graphite-checks.html)
+* [Jenkins checks](http://cabotapp.com/use/jenkins-checks.html)
+* [HTTP checks](http://cabotapp.com/use/http-checks.html)
+* [Alerting](http://cabotapp.com/use/alerting.html)
+* [Users](http://cabotapp.com/use/users.html)
+* [Rota](http://cabotapp.com/use/rota.html)
 
 For those who want to contribute:
 
-*   [Help develop](http://cabotapp.com/dev/get-started.html)
-*   [Contribute code](http://cabotapp.com/dev/contribute-code.html)
+* [Help develop](http://cabotapp.com/dev/get-started.html)
+* [Contribute code](http://cabotapp.com/dev/contribute-code.html)
 
 ## FAQ
 
@@ -73,20 +75,22 @@ It's just a lucky coincidence that his name sounds like he could be an automatio
 
 ## API
 
-The API has automatically generated documentation available by browsing https://cabot.yourcompany.com/api.  The browsable documentation displays example GET requests and lists other allowed HTTP methods.  
+The API has automatically generated documentation available by browsing https://cabot.yourcompany.com/api. The browsable documentation displays example GET requests and lists other allowed HTTP methods.
 
-To view individual items, append the item `id` to the url.  For example, to view `graphite_check` 1, browse:
+To view individual items, append the item `id` to the url. For example, to view `graphite_check` 1, browse:
+
 ```
 /api/graphite_checks/1/
 ```
 
 ### Authentication
 
-The API allows HTTP basic auth using standard Django usernames and passwords as well as session authentication (by submitting the login form on the login page).  The API similarly uses standard Django permissions to allow and deny API access.
+The API allows HTTP basic auth using standard Django usernames and passwords as well as session authentication (by submitting the login form on the login page). The API similarly uses standard Django permissions to allow and deny API access.
 
 All resources are GETable by any authenticated user, but individual permissions must be granted for POST, PUT, and other write methods.
 
 As an example, for POST access to all `status_check` subclasses, add the following permissions:
+
 ```
 cabotapp | status check | Can add graphite status check
 cabotapp | status check | Can add http status check
@@ -98,19 +102,22 @@ Access the Django admin page at https://cabot.yourcompany.com/admin to add/remov
 
 ### Sorting and Filtering
 
-Sorting and filtering can be used by both REST clients and on the browsable API.  All fields visible in the browsable API can be used for filtering and sorting.
+Sorting and filtering can be used by both REST clients and on the browsable API. All fields visible in the browsable API can be used for filtering and sorting.
 
 Get all `jenkins_checks` with debounce enabled and CRITICAL importance:
+
 ```
 https://cabot.yourcompany.com/api/jenkins_checks/?debounce=1&importance=CRITICAL
 ```
 
 Sort `graphite_checks` by `name` field, ascending:
+
 ```
 https://cabot.yourcompany.com/api/graphite_checks/?ordering=name
 ```
 
 Sort by `name` field, descending:
+
 ```
 https://cabot.yourcompany.com/api/graphite_checks/?ordering=-name
 ```

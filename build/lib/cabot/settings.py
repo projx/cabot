@@ -2,7 +2,7 @@ import os
 import dj_database_url
 import re
 from django.conf import settings
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from cabot.settings_utils import environ_get_list, force_bool
 from cabot.cabot_config import *
 

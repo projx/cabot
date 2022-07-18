@@ -1,0 +1,51 @@
+{
+  "name": "",
+  "isOrdered": true,
+  "folders": {
+    "bin": {
+      "name": "bin",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "build": {
+      "name": "build",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "cabot": {
+      "name": "cabot",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "cabot.egg-info": {
+      "name": "cabot.egg-info",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "conf": {
+      "name": "conf",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "t": {
+      "name": "t",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "upstart": {
+      "name": "upstart",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    }
+  },
+  "files": {
+    "README": 0
+  }
+}

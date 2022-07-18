@@ -29,5 +29,5 @@ NOTIFICATION_INTERVAL = int(os.environ.get('NOTIFICATION_INTERVAL', 120))
 # How long should an acknowledgement silence alerts for?
 ACKNOWLEDGEMENT_EXPIRY = int(os.environ.get('ACKNOWLEDGEMENT_EXPIRY', 20))
 
-# Default plugins are used if the user has not specified.
-CABOT_PLUGINS_ENABLED = os.environ.get('CABOT_PLUGINS_ENABLED', 'cabot_alert_twilio,cabot_alert_email')
+# Default plugins are used if the user has not specified. cabot_alert_twilio
+CABOT_PLUGINS_ENABLED = os.environ.get('CABOT_PLUGINS_ENABLED', 'cabot_alert_email')
